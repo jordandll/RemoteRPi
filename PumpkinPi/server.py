@@ -59,28 +59,26 @@ while True:
     C = cmd.split('.')
     if C[0] == 'sides':
         if C[1] == 'left':
-            pumpkin.sides.left[int(C[2])].toggle()
+            pumpkin.sides.left[int(C[2])].toggle()  # type: ignore[attr-defined]
         else:
-            pumpkin.sides.right[int(C[2])].toggle()
+            pumpkin.sides.right[int(C[2])].toggle()  # type: ignore[attr-defined]
     elif C[0] == 'blink':
         if len(C) > 1:
             if isinstance(pumpkin.pin_factory, MockFactory):
                 print("PumpkinPi is blinking...")
-            pumpkin.eyes.blink(n=5, background=False)
+            pumpkin.eyes.blink(n=5, background=False)  # type: ignore[attr-defined]
             if isinstance(pumpkin.pin_factory, MockFactory):
                 print("PumpkinPi is done blinking.")
-            continue
         else:
             if isinstance(pumpkin.pin_factory, MockFactory):
                 print("PumpkinPi is blinking...")
-            pumpkin.blink(n=5, background=False)
+            pumpkin.blink(n=5, background=False)  # type: ignore[attr-defined]
             if isinstance(pumpkin.pin_factory, MockFactory):
                 print("PumpkinPi is done blinking.")
-            continue
     elif C[0] == 'cycle':
         sp.run(['python3', 'cycle.py'])
     else:
-        pumpkin.eyes.left.toggle() if C[1] == 'left' else pumpkin.eyes.right.toggle()
+        pumpkin.eyes.left.toggle() if C[1] == 'left' else pumpkin.eyes.right.toggle()  # type: ignore[attr-defined]
 
     """If the pin factory is a MockFactory, which can be achieved through setting the environment variable, 'GPIOZERO_PIN_FACTORY', to 'mock',
      then we must print out the outcome of the command that was just executed during this loop iteration."""
