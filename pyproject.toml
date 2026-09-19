@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Installable CLI for the RemoteRPi PumpkinPi scripts."
 readme = "README.md"
 requires-python = ">=3.8"
-authors = [{ name = "RemoteRPi" }]
+authors = [{ name = "Jordan Driscoll", email = "drisjor@proton.me" }]
 license = { text = "MIT" }
 dependencies = [
     "gpiozero>=2.0",
